@@ -1,0 +1,104 @@
+body {
+  background-image: url('assets/bg.jpg');
+  background-size: cover; /* ou 'contain', depende do efeito que você quer */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* garante que preencha a tela inteira */
+  margin: 0;
+  overflow: hidden;
+}
+
+.moving-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.moving-img {
+  position: absolute;
+  top: 85%;
+  transform: translateY(-50%);
+  width: 400px; /* ou qualquer tamanho que combine com sua imagem */
+  animation: mover 6s infinite alternate ease-in-out;
+}
+
+@keyframes mover {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(100% - 100px); /* 100px = largura da imagem */
+  }
+}
+
+.zigzag-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px; /* ajusta conforme o tamanho da imagem */
+  animation: zigueZague 5s infinite linear;
+}
+
+@keyframes zigueZague {
+  0% {
+    left: 0;
+    top: 0;
+  }
+  20% {
+    left: 20%;
+    top: 20%;
+  }
+  40% {
+    left: 40%;
+    top: 0%;
+  }
+  60% {
+    left: 60%;
+    top: 20%;
+  }
+  80% {
+    left: 80%;
+    top: 0%;
+  }
+  100% {
+    left: 100%;
+    top: 20%;
+  }
+}
+
+.personagem {
+  position: absolute;
+  bottom: 0;
+  left: 50px; /* onde o personagem vai aparecer */
+  width: 200px;
+  height: auto;
+}
+
+.corpo {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.braco {
+  position: absolute;
+  top: 20px; /* ajusta conforme o encaixe com o corpo */
+  left: 80px; /* idem */
+  width: 60px;
+  transform-origin: top left; /* ponto de rotação */
+  animation: mexerBraco 1s infinite alternate ease-in-out;
+  z-index: 2;
+}
+
+@keyframes mexerBraco {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+
+
+
